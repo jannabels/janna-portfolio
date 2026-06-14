@@ -967,6 +967,19 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
   .project-bento {
     grid-template-columns: 1fr;
   }
@@ -1007,5 +1020,79 @@ h3 {
   .nav-pill a {
     padding: 0.5rem 0.75rem;
     font-size: 0.8rem;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 2rem;
+  }
+
+  .hero-split {
+    gap: 2rem;
+    padding: 2rem 0 1rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .about-bento,
+  .cert-block,
+  .footer-inner {
+    padding: 1.5rem;
+  }
+
+  .project-image {
+    height: 190px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 1.25rem, 1140px);
+  }
+
+  .nav-pill {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-pill a {
+    flex: 1 1 calc(50% - 0.2rem);
+    text-align: center;
+  }
+
+  .hero-split {
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  .photo-frame {
+    width: min(100%, 260px);
+  }
+
+  .about-bento,
+  .skill-card,
+  .project-card,
+  .cert-block,
+  .footer-inner {
+    padding: 1.15rem;
+  }
+
+  .project-card p {
+    min-height: auto;
+  }
+
+  .social-links a {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
