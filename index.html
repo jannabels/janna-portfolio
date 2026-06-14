@@ -11,51 +11,63 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=17" />
+    <link rel="stylesheet" href="styles.css?v=26" />
   </head>
   <body>
     <div class="page-shell">
-      <header class="hero">
+      <div class="bg-blob bg-blob-1" aria-hidden="true"></div>
+      <div class="bg-blob bg-blob-2" aria-hidden="true"></div>
+      <div class="bg-blob bg-blob-3" aria-hidden="true"></div>
+
+      <header class="hero" id="home">
         <nav class="nav container">
-          <a href="#home" class="logo">Janna Hadji Rashid</a>
-          <div class="nav-links">
+          <a href="#home" class="logo">JHR</a>
+          <div class="nav-pill">
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#projects">Projects</a>
+            <a href="#certifications">Certs</a>
+            <a href="#projects">Work</a>
             <a href="#contact">Contact</a>
           </div>
         </nav>
 
-        <div class="container hero-grid" id="home">
-          <div class="hero-copy">
+        <div class="container hero-split">
+          <div class="hero-copy reveal">
             <p class="eyebrow">Administrative Support • Data & Web</p>
+            <h1>
+              Hi, I'm
+              <span class="gradient-text">Janna Hadji Rashid</span>
+            </h1>
             <p class="intro">
               I combine administrative support, data work, and web design to keep
               projects moving smoothly and look polished from the first click.
             </p>
             <div class="hero-actions">
-              <a href="certificate.html" class="btn">
-                View Certificates
-              </a>
-              <a href="#projects" class="btn btn-secondary">See Projects</a>
+              <a href="JANNA_RESUME.pdf" class="btn btn-glow" download="janna_resume.pdf">View Resume</a>
+              <a href="#projects" class="btn btn-outline">See Projects</a>
             </div>
           </div>
-
+          <div class="hero-visual reveal reveal-delay-2">
+            <div class="photo-frame">
+              <img src="assets/gradpic.jpg" alt="Janna Hadji Rashid" class="profile-image" />
+              <div class="photo-ring"></div>
+            </div>
+            <div class="hero-badge">Available for freelance</div>
+          </div>
         </div>
       </header>
 
-      <main class="container">
-        <section id="about" class="section about-section">
-          <div class="about-card">
-            <div class="about-copy">
+      <main>
+        <section id="about" class="section container">
+          <div class="about-bento reveal">
+            <div class="about-main">
               <p class="eyebrow">About</p>
               <h2>I bring structure to both creative and operational work.</h2>
               <p>
-                 Bachelor of Sc,
+                 Bachelor of Science in Information Systems graduate, Major in Data Science,
                 and I enjoy turning ideas into clear digital experiences.
               </p>
               <p>
@@ -63,101 +75,169 @@
                 data entry, file organization, and other detail-driven work with care.
               </p>
               <a href="mailto:jannahhadjirashid@gmail.com" class="text-link">
-                jannahhadjirashid@gmail.com
+                jannahhadjirashid@gmail.com →
               </a>
             </div>
-            <div class="about-side">
-              <img src="assets/gradpic.jpg" alt="Janna Hadji Rashid" class="profile-image" />
-              <ul class="pill-list">
-                <li>Administrative Support</li>
-                <li>Data Entry</li>
-                <li>File Management</li>
-                <li>Web Design</li>
-              </ul>
+            <div class="about-tags">
+              <span>Administrative Support</span>
+              <span>Data Entry</span>
+              <span>File Management</span>
+              <span>Web Design</span>
             </div>
           </div>
         </section>
 
-        <section id="skills" class="section">
-          <div class="section-head">
+        <section id="skills" class="section container">
+          <div class="section-head reveal">
             <p class="eyebrow">Skills</p>
             <h2>What I can support.</h2>
           </div>
-          <div class="skill-grid">
-            <article class="skill-card">
+          <div class="skill-stack">
+            <article class="skill-card reveal">
+              <span class="card-num">01</span>
               <h3>Administrative Support</h3>
               <p>Document handling, scheduling, inbox organization, and dependable office support.</p>
             </article>
-            <article class="skill-card">
+            <article class="skill-card reveal reveal-delay-1">
+              <span class="card-num">02</span>
               <h3>Data & Analytics</h3>
               <p>Python, Power BI, Excel, spreadsheet work, and clear reporting support.</p>
             </article>
-            <article class="skill-card">
+            <article class="skill-card reveal reveal-delay-2">
+              <span class="card-num">03</span>
               <h3>Programming</h3>
               <p>C++, HTML, CSS, JavaScript, PHP, MySQL, and Tailwind for digital projects.</p>
+            </article>
+            <article class="skill-card reveal reveal-delay-3">
+              <span class="card-num">04</span>
+              <h3>Design & Web Tools</h3>
+              <p>Canva, Figma, and Wix for layouts, branding, and polished web experiences.</p>
             </article>
           </div>
         </section>
 
-        <section id="certifications" class="section">
-          <div class="section-head">
-            <p class="eyebrow">Certifications</p>
-          
-          </div>
-          <div class="certification-card">
-            <div>
-              
+        <section id="certifications" class="section container">
+          <div class="cert-block reveal">
+            <div class="cert-copy">
+              <p class="eyebrow">Certifications</p>
+              <h2>Credentials & training.</h2>
               <ul class="cert-list">
-                <li>Introduction to Data Science - Cisco Networking Academy (Nov 2024)</li>
-                <li>Python Essentials 1 - Cisco Networking Academy (Nov 2024)</li>
-                <li>Introduction to Cybersecurity - Cisco Networking Academy (Dec 2024)</li>
-                <li>On the Job Training Certification - CTP Red III Corp (May 2026)</li>
+                <li>Introduction to Data Science — Cisco Networking Academy (Nov 2024)</li>
+                <li>Python Essentials 1 — Cisco Networking Academy (Nov 2024)</li>
+                <li>Introduction to Cybersecurity — Cisco Networking Academy (Dec 2024)</li>
+                <li>On the Job Training Certification — CTP Red III Corp (May 2026)</li>
               </ul>
             </div>
-            <a href="certificate.html" class="btn">View Certificate</a>
+            <a href="certificate.html" class="btn btn-glow cert-btn">View Certificate</a>
           </div>
         </section>
 
-        <section id="projects" class="section">
-          <div class="section-head">
+        <section id="projects" class="section container">
+          <div class="section-head reveal">
             <p class="eyebrow">Projects</p>
             <h2>Selected work.</h2>
           </div>
           <div class="project-grid">
-            <article class="project-card featured-project">
-              <h3>Studio Landing Page</h3>
-              <p>A refined marketing site designed to feel polished, clear, and conversion-driven.</p>
-              <span>React • CSS • Animation</span>
+            <article class="project-card reveal">
+              <div class="project-slideshow" data-interval="5000">
+                <div class="project-slide is-active">
+                  <img src="assets/projects/school-form-1.svg" alt="School forms management system dashboard preview" class="project-image" />
+                </div>
+                <div class="project-slide">
+                  <img src="assets/projects/school-form-2.svg" alt="School forms management system form workflow preview" class="project-image" />
+                </div>
+                <div class="project-slide">
+                  <img src="assets/projects/school-form-3.svg" alt="School forms management system approval preview" class="project-image" />
+                </div>
+                <div class="project-dots" aria-label="Project slideshow indicators">
+                  <button type="button" class="dot is-active" aria-label="Show slide 1"></button>
+                  <button type="button" class="dot" aria-label="Show slide 2"></button>
+                  <button type="button" class="dot" aria-label="Show slide 3"></button>
+                </div>
+              </div>
+              <div class="project-copy">
+                <h3>Web-Based School Forms Management System</h3>
+                <p>A digital solution for handling school forms, approvals, and administrative requests in one organized platform.</p>
+                <a href="https://github.com/jannabels/DIHS-Form-Management-System" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a>
+              </div>
             </article>
-            <article class="project-card">
-              <h3>TaskFlow Dashboard</h3>
-              <p>An internal dashboard built for clarity, collaboration, and smoother task flow.</p>
-              <span>JavaScript • API</span>
+
+            <article class="project-card reveal reveal-delay-1">
+              <div class="project-slideshow" data-interval="5200">
+                <div class="project-slide is-active">
+                  <img src="assets/projects/library-1.svg" alt="Library management system dashboard preview" class="project-image" />
+                </div>
+                <div class="project-slide">
+                  <img src="assets/projects/library-2.svg" alt="Library management system records preview" class="project-image" />
+                </div>
+                <div class="project-slide">
+                  <img src="assets/projects/library-3.svg" alt="Library management system transaction preview" class="project-image" />
+                </div>
+                <div class="project-dots" aria-label="Project slideshow indicators">
+                  <button type="button" class="dot is-active" aria-label="Show slide 1"></button>
+                  <button type="button" class="dot" aria-label="Show slide 2"></button>
+                  <button type="button" class="dot" aria-label="Show slide 3"></button>
+                </div>
+              </div>
+              <div class="project-copy">
+                <h3>Library Management System</h3>
+                <p>A streamlined system for managing books, borrowing records, and library transactions efficiently.</p>
+                <a href="https://github.com/jannabels/janna-portfolio" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a>
+              </div>
             </article>
-            <article class="project-card">
-              <h3>Personal Brand Site</h3>
-              <p>A modern portfolio experience focused on clean structure and strong first impressions.</p>
-              <span>HTML • CSS • Responsive</span>
+
+            <article class="project-card reveal reveal-delay-2">
+              <div class="project-slideshow" data-interval="4800">
+                <div class="project-slide is-active">
+                  <img src="assets/projects/portfolio-1.svg" alt="Portfolio website hero preview" class="project-image" />
+                </div>
+                <div class="project-slide">
+                  <img src="assets/projects/portfolio-2.svg" alt="Portfolio website projects preview" class="project-image" />
+                </div>
+                <div class="project-slide">
+                  <img src="assets/projects/portfolio-3.svg" alt="Portfolio website contact preview" class="project-image" />
+                </div>
+                <div class="project-dots" aria-label="Project slideshow indicators">
+                  <button type="button" class="dot is-active" aria-label="Show slide 1"></button>
+                  <button type="button" class="dot" aria-label="Show slide 2"></button>
+                  <button type="button" class="dot" aria-label="Show slide 3"></button>
+                </div>
+              </div>
+              <div class="project-copy">
+                <h3>Portfolio Website</h3>
+                <p>A personal portfolio website designed to showcase skills, projects, and professional background in a polished layout.</p>
+                <a href="https://github.com/jannabels/janna-portfolio" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a>
+              </div>
             </article>
           </div>
         </section>
       </main>
 
       <footer id="contact" class="footer">
-        <div class="container footer-content">
-          <p>Let’s build something meaningful.</p>
+        <div class="container footer-inner reveal">
+          <p class="footer-title">Let's build something meaningful.</p>
           <div class="social-links">
-            <a href="https://github.com/jannahhadjirashid" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GH</a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
-            <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer" aria-label="Upwork">U</a>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+            <a href="https://github.com/jannahhadjirashid" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.92.58.11.79-.25.79-.56v-2.18c-3.2.7-3.88-1.38-3.88-1.38-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.56-.29-5.25-1.28-5.25-5.72 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.45-2.69 5.42-5.26 5.71.41.36.78 1.07.78 2.16v3.2c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/janna-hadji-rashid-729a34411" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12ZM5.5 9.75h2.88V18H5.5zM10.25 9.75h2.76v1.14h.04c.38-.72 1.32-1.48 2.72-1.48 2.91 0 3.45 1.91 3.45 4.4V18h-2.88v-7.42c0-1.77-.03-4.05-2.47-4.05-2.47 0-2.85 1.93-2.85 3.92V18H10.25z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/jnaa_hr/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3.2A4.3 4.3 0 1 1 7.7 11.5 4.3 4.3 0 0 1 12 7.2zm0 2A2.3 2.3 0 1 0 14.3 11.5 2.3 2.3 0 0 0 12 9.2zm5.5-2.7a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>
+            </a>
+            <a href="https://www.upwork.com/freelancers/~015d77883e356693c1?mp_source=share" target="_blank" rel="noopener noreferrer" aria-label="Upwork">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.8 8.4c-.8 0-1.5.3-2.1.8l-.4-1.2H11v8.1h2.4v-4.2c0-1 .7-1.8 1.7-1.8 1 0 1.6.8 1.6 1.8v4.2h2.4v-4.4c0-2.2-1.5-3.7-3.3-3.7zM8.4 8.4c-1.8 0-3.2 1.4-3.2 3.2 0 1.7 1.4 3.2 3.2 3.2 1.7 0 3.2-1.5 3.2-3.2 0-1.8-1.5-3.2-3.2-3.2z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/norjannah.hadjirashid" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 20v-7.3h2.45l.37-2.84H13.7V4.04c0-.82.23-1.38 1.41-1.38h1.5V.14A20.1 20.1 0 0 0 14.4 0c-2.17 0-3.66 1.33-3.66 3.77v2.06H8.3v2.84h2.44V20z"/></svg>
+            </a>
           </div>
-          <a href="mailto:jannahhadjirashid@gmail.com" class="btn btn-secondary">Contact me</a>
+          <a href="mailto:jannahhadjirashid@gmail.com" class="btn btn-glow">Contact me</a>
         </div>
       </footer>
     </div>
 
-    <script src="script.js?v=18"></script>
+    <script src="script.js?v=22"></script>
   </body>
 </html>
