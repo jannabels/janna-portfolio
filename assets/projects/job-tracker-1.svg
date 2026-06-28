@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" style="background:#F0F2F5;font-family:Inter,sans-serif">
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="200" height="480" fill="#fff"/>
+  <text x="20" y="36" font-size="13" font-weight="600" fill="#111827">Job Tracker</text>
+  <text x="20" y="52" font-size="10" fill="#6B7280">Track every application.</text>
+  <!-- Add btn -->
+  <rect x="16" y="62" width="168" height="28" rx="6" fill="#5B30B5"/>
+  <text x="80" y="80" font-size="11" fill="#fff" text-anchor="middle" font-weight="500">+ Add application</text>
+  <!-- Stats -->
+  <text x="20" y="108" font-size="9" font-weight="600" fill="#9CA3AF" letter-spacing="1">OVERVIEW</text>
+  <text x="20" y="135" font-size="28" font-weight="600" fill="#111827">12</text>
+  <text x="52" y="135" font-size="11" fill="#6B7280">total</text>
+  <!-- Status rows -->
+  <circle cx="28" cy="155" r="4" fill="#2563EB"/><text x="38" y="159" font-size="11" fill="#6B7280">Applied</text><text x="170" y="159" font-size="11" fill="#111827" text-anchor="end">5</text>
+  <circle cx="28" cy="175" r="4" fill="#D97706"/><text x="38" y="179" font-size="11" fill="#6B7280">Interview</text><text x="170" y="179" font-size="11" fill="#111827" text-anchor="end">3</text>
+  <circle cx="28" cy="195" r="4" fill="#DB2777"/><text x="38" y="199" font-size="11" fill="#6B7280">Assessment</text><text x="170" y="199" font-size="11" fill="#111827" text-anchor="end">2</text>
+  <circle cx="28" cy="215" r="4" fill="#7C3AED"/><text x="38" y="219" font-size="11" fill="#6B7280">Final Interview</text><text x="170" y="219" font-size="11" fill="#111827" text-anchor="end">1</text>
+  <circle cx="28" cy="235" r="4" fill="#059669"/><text x="38" y="239" font-size="11" fill="#6B7280">Offer</text><text x="170" y="239" font-size="11" fill="#111827" text-anchor="end">1</text>
+  <circle cx="28" cy="255" r="4" fill="#DC2626"/><text x="38" y="259" font-size="11" fill="#6B7280">Rejected</text><text x="170" y="259" font-size="11" fill="#111827" text-anchor="end">0</text>
+  <!-- Main area -->
+  <rect x="200" y="0" width="600" height="480" fill="#F0F2F5"/>
+  <!-- Topbar -->
+  <rect x="200" y="0" width="600" height="50" fill="#fff"/>
+  <rect x="215" y="13" width="140" height="24" rx="5" fill="#F7F8FA" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="225" y="29" font-size="10" fill="#9CA3AF">Search company or title…</text>
+  <rect x="365" y="13" width="90" height="24" rx="5" fill="#F7F8FA" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="375" y="29" font-size="10" fill="#6B7280">All statuses</text>
+  <rect x="463" y="13" width="75" height="24" rx="5" fill="#F7F8FA" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="473" y="29" font-size="10" fill="#6B7280">All types</text>
+  <!-- Table -->
+  <rect x="215" y="64" width="570" height="396" rx="8" fill="#fff" stroke="#E5E7EB" stroke-width="1"/>
+  <!-- Header row -->
+  <rect x="215" y="64" width="570" height="32" rx="8" fill="#fff"/>
+  <line x1="215" y1="96" x2="785" y2="96" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="228" y="85" font-size="9" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">COMPANY &amp; ROLE</text>
+  <text x="370" y="85" font-size="9" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">STATUS</text>
+  <text x="450" y="85" font-size="9" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">TYPE</text>
+  <text x="520" y="85" font-size="9" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">LOCATION</text>
+  <text x="620" y="85" font-size="9" font-weight="600" fill="#9CA3AF" letter-spacing="0.5">DATE</text>
+  <!-- Row 1 -->
+  <rect x="215" y="96" width="3" height="44" fill="#2563EB"/>
+  <text x="228" y="114" font-size="12" font-weight="500" fill="#111827">Acme Corp</text>
+  <text x="228" y="130" font-size="10" fill="#6B7280">Product Manager</text>
+  <rect x="366" y="103" width="62" height="18" rx="9" fill="rgba(37,99,235,0.09)"/>
+  <text x="397" y="116" font-size="10" fill="#2563EB" text-anchor="middle" font-weight="500">Applied</text>
+  <text x="450" y="120" font-size="11" fill="#6B7280">Full-time</text>
+  <text x="520" y="120" font-size="11" fill="#6B7280">Manila, PH</text>
+  <text x="620" y="120" font-size="10" fill="#6B7280">Jun 20, 2026</text>
+  <line x1="215" y1="140" x2="785" y2="140" stroke="#E5E7EB" stroke-width="0.5"/>
+  <!-- Row 2 -->
+  <rect x="215" y="140" width="3" height="44" fill="#D97706"/>
+  <text x="228" y="158" font-size="12" font-weight="500" fill="#111827">TechStart PH</text>
+  <text x="228" y="174" font-size="10" fill="#6B7280">Data Analyst</text>
+  <rect x="366" y="147" width="65" height="18" rx="9" fill="rgba(217,119,6,0.10)"/>
+  <text x="398" y="160" font-size="10" fill="#D97706" text-anchor="middle" font-weight="500">Interview</text>
+  <text x="450" y="164" font-size="11" fill="#6B7280">Full-time</text>
+  <text x="520" y="164" font-size="11" fill="#6B7280">Remote</text>
+  <text x="620" y="164" font-size="10" fill="#6B7280">Jun 15, 2026</text>
+  <line x1="215" y1="184" x2="785" y2="184" stroke="#E5E7EB" stroke-width="0.5"/>
+  <!-- Row 3 -->
+  <rect x="215" y="184" width="3" height="44" fill="#7C3AED"/>
+  <text x="228" y="202" font-size="12" font-weight="500" fill="#111827">GlobalSys Inc</text>
+  <text x="228" y="218" font-size="10" fill="#6B7280">Web Developer</text>
+  <rect x="366" y="191" width="42" height="18" rx="9" fill="rgba(124,58,237,0.09)"/>
+  <text x="387" y="204" font-size="10" fill="#7C3AED" text-anchor="middle" font-weight="500">Final</text>
+  <text x="450" y="208" font-size="11" fill="#6B7280">Contract</text>
+  <text x="520" y="208" font-size="11" fill="#6B7280">Makati</text>
+  <text x="620" y="208" font-size="10" fill="#6B7280">Jun 10, 2026</text>
+  <line x1="215" y1="228" x2="785" y2="228" stroke="#E5E7EB" stroke-width="0.5"/>
+  <!-- Row 4 -->
+  <rect x="215" y="228" width="3" height="44" fill="#059669"/>
+  <text x="228" y="246" font-size="12" font-weight="500" fill="#111827">BrightPath Co</text>
+  <text x="228" y="262" font-size="10" fill="#6B7280">Admin Assistant</text>
+  <rect x="366" y="235" width="42" height="18" rx="9" fill="rgba(5,150,105,0.09)"/>
+  <text x="387" y="248" font-size="10" fill="#059669" text-anchor="middle" font-weight="500">Offer</text>
+  <text x="450" y="252" font-size="11" fill="#6B7280">Part-time</text>
+  <text x="520" y="252" font-size="11" fill="#6B7280">Quezon City</text>
+  <text x="620" y="252" font-size="10" fill="#6B7280">Jun 5, 2026</text>
+</svg>
