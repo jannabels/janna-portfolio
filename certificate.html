@@ -1,83 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Certificates | Janna Hadji Rashid</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css?v=25" />
-  </head>
-  <body class="certificate-page">
-    <div class="page-shell">
-      <div class="bg-blob bg-blob-1" aria-hidden="true"></div>
-      <div class="bg-blob bg-blob-2" aria-hidden="true"></div>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Certificates | Janna Hadji Rashid</title>
+<meta name="description" content="Certifications earned by Janna Hadji Rashid — Cisco Networking Academy and on the job training credentials." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { font: inherit; border: none; background: none; cursor: pointer; }
 
-      <main class="certificate-page-wrap container">
-        <header class="certificate-header">
-          <div>
-            <p class="eyebrow">Certifications</p>
-            <h1>My Certificates</h1>
+/* ── Tokens (matches index.html) ── */
+:root {
+  --cream: #FAF8F4;
+  --ink: #1A1612;
+  --ink-soft: #5C5248;
+  --ink-muted: #9C9389;
+  --rose: #C8556A;
+  --rose-light: #F2C4CB;
+  --rose-pale: #FDF0F2;
+  --sand: #EDE8E0;
+  --white: #FFFFFF;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --shadow: 0 2px 12px rgba(26,22,18,0.07);
+  --shadow-lg: 0 8px 40px rgba(26,22,18,0.11);
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --max: 1100px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(var(--max), 100% - 2.5rem);
+  margin: 0 auto;
+}
+
+/* ── Nav ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1rem 0;
+  background: rgba(250,248,244,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--sand);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+}
+.nav-links a {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover {
+  color: var(--ink);
+  background: var(--sand);
+}
+
+/* ── Page header (hero-style, shorter) ── */
+.page-header {
+  padding: 9rem 0 3rem;
+}
+.page-header-inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 1rem;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--rose);
+}
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.page-header h1 em {
+  font-style: italic;
+  color: var(--rose);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.btn-primary:hover {
+  background: var(--rose);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200,85,106,0.3);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1.5px solid var(--sand);
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+.btn-secondary:hover {
+  border-color: var(--ink);
+  background: var(--sand);
+  transform: translateY(-2px);
+}
+
+/* ── Section ── */
+.section {
+  padding: 2rem 0 6rem;
+}
+
+/* ── Certificate grid ── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.cert-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--sand);
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.cert-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.cert-image-wrap {
+  position: relative;
+  background: var(--sand);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: pointer;
+}
+.cert-image-wrap img,
+.cert-image-wrap canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.cert-image-wrap .cert-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.cert-image-wrap .cert-zoom-hint {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(250,248,244,0.92);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  transform: translateY(4px);
+}
+.cert-image-wrap:hover .cert-zoom-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cert-body {
+  padding: 1.5rem;
+}
+.cert-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--rose-pale);
+  color: var(--rose);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.cert-card h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+.cert-card p {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+/* ── Lightbox ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(26,22,18,0.82);
+  backdrop-filter: blur(4px);
+}
+.lightbox.is-open { display: flex; }
+.lightbox-inner {
+  position: relative;
+  max-width: min(900px, 100%);
+  max-height: 100%;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.lightbox-inner img,
+.lightbox-inner canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+}
+.lightbox-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+.lightbox-close:hover { background: var(--rose); }
+
+/* ── Footer ── */
+.footer {
+  background: var(--ink);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 4rem 0 3rem;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom a {
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.footer-bottom a:hover { color: var(--white); }
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .cert-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .page-header { padding: 7rem 0 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html#home" class="nav-logo">Janna HR.</a>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#certifications">Certs</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page header -->
+<header class="page-header">
+  <div class="container page-header-inner">
+    <div class="reveal">
+      <p class="section-label">Credentials</p>
+      <h1>My <em>Certificates.</em></h1>
+    </div>
+    <a href="index.html#certifications" class="btn-secondary reveal reveal-delay-1">← Back to portfolio</a>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="cert-grid">
+
+        <article class="cert-card reveal">
+          <div class="cert-image-wrap" data-lightbox-trigger
+               data-pdf="Introduction_to_Data_Science_certificate_njshadjirashid-kld-edu-ph_e779d74a-deb5-4582-80f4-8d8efa0f93b0.pdf">
+            <span class="cert-loading">Loading preview…</span>
+            <span class="cert-zoom-hint">Click to enlarge ↗</span>
           </div>
-          <a href="index.html#certifications" class="btn btn-outline">Back to portfolio</a>
-        </header>
-
-        <div class="certificate-grid">
-          <article class="certificate-item">
-            <div class="certificate-image-wrap">
-              <img
-                class="cert-image"
-                data-pdf="Introduction_to_Data_Science_certificate_njshadjirashid-kld-edu-ph_e779d74a-deb5-4582-80f4-8d8efa0f93b0.pdf"
-                alt="Introduction to Data Science certificate"
-              />
-            </div>
+          <div class="cert-body">
+            <span class="cert-tag">Certificate</span>
             <h2>Introduction to Data Science</h2>
             <p>Cisco Networking Academy · Nov 2024</p>
-          </article>
+          </div>
+        </article>
 
-          <article class="certificate-item">
-            <div class="certificate-image-wrap">
-              <img
-                class="cert-image"
-                data-pdf="Python_Essentials_1_certificate_njshadjirashid-kld-edu-ph_04cdf614-d812-4402-959c-a85577ead5ec.pdf"
-                alt="Python Essentials 1 certificate"
-              />
-            </div>
+        <article class="cert-card reveal reveal-delay-1">
+          <div class="cert-image-wrap" data-lightbox-trigger
+               data-pdf="Python_Essentials_1_certificate_njshadjirashid-kld-edu-ph_04cdf614-d812-4402-959c-a85577ead5ec.pdf">
+            <span class="cert-loading">Loading preview…</span>
+            <span class="cert-zoom-hint">Click to enlarge ↗</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-tag">Certificate</span>
             <h2>Python Essentials 1</h2>
             <p>Cisco Networking Academy · Nov 2024</p>
-          </article>
+          </div>
+        </article>
 
-          <article class="certificate-item">
-            <div class="certificate-image-wrap">
-              <img
-                class="cert-image"
-                data-pdf="Introduction_to_Cybersecurity_certificate_njshadjirashid-kld-edu-ph_f40671be-f5c7-4269-8299-60adcab24a09.pdf"
-                alt="Introduction to Cybersecurity certificate"
-              />
-            </div>
+        <article class="cert-card reveal reveal-delay-2">
+          <div class="cert-image-wrap" data-lightbox-trigger
+               data-pdf="Introduction_to_Cybersecurity_certificate_njshadjirashid-kld-edu-ph_f40671be-f5c7-4269-8299-60adcab24a09.pdf">
+            <span class="cert-loading">Loading preview…</span>
+            <span class="cert-zoom-hint">Click to enlarge ↗</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-tag">Certificate</span>
             <h2>Introduction to Cybersecurity</h2>
             <p>Cisco Networking Academy · Dec 2024</p>
-          </article>
+          </div>
+        </article>
 
-          <article class="certificate-item">
-            <div class="certificate-image-wrap">
-              <img
-                src="assets/ojt-cert.jpg"
-                alt="On the Job Training Certification"
-              />
-            </div>
+        <article class="cert-card reveal reveal-delay-3">
+          <div class="cert-image-wrap" data-lightbox-trigger data-img="assets/ojt-cert.jpg">
+            <img src="assets/ojt-cert.jpg" alt="On the Job Training Certification" />
+            <span class="cert-zoom-hint">Click to enlarge ↗</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-tag">Certificate</span>
             <h2>On the Job Training Certification</h2>
             <p>CTP Red III Corp · May 2026</p>
-          </article>
-        </div>
-      </main>
-    </div>
+          </div>
+        </article>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script src="certificate.js?v=1"></script>
-  </body>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-bottom">
+    <span>© 2026 Janna Hadji Rashid</span>
+    <a href="index.html#certifications">Back to portfolio →</a>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+    <div id="lightboxContent"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="certificate.js?v=2"></script>
+
+<script>
+// ── Reveal on scroll (matches index.html behavior) ──
+document.addEventListener('DOMContentLoaded', () => {
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => obs.observe(el));
+
+  // ── Lightbox ──
+  const lightbox = document.getElementById('lightbox');
+  const lightboxContent = document.getElementById('lightboxContent');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  function openLightbox(node) {
+    lightboxContent.innerHTML = '';
+    lightboxContent.appendChild(node);
+    lightbox.classList.add('is-open');
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightboxContent.innerHTML = '';
+  }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  document.querySelectorAll('[data-lightbox-trigger]').forEach(wrap => {
+    wrap.addEventListener('click', () => {
+      const img = wrap.querySelector('img');
+      const canvas = wrap.querySelector('canvas');
+      if (canvas) {
+        const clone = document.createElement('canvas');
+        clone.width = canvas.width;
+        clone.height = canvas.height;
+        clone.getContext('2d').drawImage(canvas, 0, 0);
+        openLightbox(clone);
+      } else if (img && img.src) {
+        const clone = document.createElement('img');
+        clone.src = img.src;
+        clone.alt = img.alt || '';
+        openLightbox(clone);
+      }
+    });
+  });
+});
+</script>
+
+</body>
 </html>
