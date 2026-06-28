@@ -1,267 +1,1129 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Janna Hadji Rashid | Creative Support & Digital Work</title>
-    <meta
-      name="description"
-      content="Portfolio website featuring projects, skills, and a short introduction."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css?v=26" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <div class="bg-blob bg-blob-1" aria-hidden="true"></div>
-      <div class="bg-blob bg-blob-2" aria-hidden="true"></div>
-      <div class="bg-blob bg-blob-3" aria-hidden="true"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janna Hadji Rashid — Portfolio</title>
+  <meta name="description" content="Portfolio of Janna Hadji Rashid — Information Systems graduate specializing in administrative support, data work, and web development." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font: inherit; border: none; background: none; cursor: pointer; }
 
-      <header class="hero" id="home">
-        <nav class="nav container">
-          <div class="nav-pill">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#certifications">Certs</a>
-            <a href="#projects">Work</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </nav>
+    /* ── Tokens ── */
+    :root {
+      --cream: #FAF8F4;
+      --ink: #1A1612;
+      --ink-soft: #5C5248;
+      --ink-muted: #9C9389;
+      --rose: #C8556A;
+      --rose-light: #F2C4CB;
+      --rose-pale: #FDF0F2;
+      --sand: #EDE8E0;
+      --white: #FFFFFF;
+      --radius: 16px;
+      --radius-lg: 24px;
+      --shadow: 0 2px 12px rgba(26,22,18,0.07);
+      --shadow-lg: 0 8px 40px rgba(26,22,18,0.11);
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --max: 1100px;
+    }
 
-        <div class="container hero-split">
-          <div class="hero-copy reveal">
-            <p class="eyebrow">Administrative Support • Data & Web</p>
-            <h1>
-              Hi, I'm
-              <span class="gradient-text">Janna Hadji Rashid</span>
-            </h1>
-            <p class="intro">
-              I combine administrative support, data work, and web design to keep
-              projects moving smoothly and look polished from the first click.
-            </p>
-            <div class="hero-actions">
-              <a href="JANNA_RESUME.pdf" class="btn btn-glow" download="janna_resume.pdf">View Resume</a>
-              <a href="#projects" class="btn btn-outline">See Projects</a>
-            </div>
-          </div>
-          <div class="hero-visual reveal reveal-delay-2">
-            <div class="photo-frame">
-              <img src="assets/gradpic.jpg" alt="Janna Hadji Rashid" class="profile-image" />
-              <div class="photo-ring"></div>
-            </div>
-            <div class="hero-badge">Available for freelance</div>
+    /* ── Base ── */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Layout ── */
+    .container {
+      width: min(var(--max), 100% - 2.5rem);
+      margin: 0 auto;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 0;
+      background: rgba(250,248,244,0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--sand);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+    }
+    .nav-links a {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--ink);
+      background: var(--sand);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 0 4rem;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1.5rem;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--rose);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rose);
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--ink-soft);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--rose);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200,85,106,0.3);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1.5px solid var(--sand);
+      transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--ink);
+      background: var(--sand);
+      transform: translateY(-2px);
+    }
+
+    /* Hero photo */
+    .hero-photo-wrap {
+      position: relative;
+    }
+    .hero-photo-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--sand);
+      aspect-ratio: 4/5;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .hero-status {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      background: rgba(250,248,244,0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    /* Floating accent card */
+    .hero-accent {
+      position: absolute;
+      top: 2rem;
+      right: -1.5rem;
+      padding: 1rem 1.25rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      min-width: 100px;
+    }
+    .hero-accent-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--rose);
+    }
+    .hero-accent-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.25rem;
+    }
+
+    /* ── Section base ── */
+    .section {
+      padding: 6rem 0;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--rose);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-body {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
+    }
+    .about-body p + p { margin-top: 1rem; }
+    .about-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--ink);
+      border-bottom: 1.5px solid var(--rose);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+    .about-email:hover { color: var(--rose); }
+    .about-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .about-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .about-pill {
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      background: var(--white);
+      border: 1.5px solid var(--sand);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+    .about-stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .about-stat {
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      background: var(--white);
+      border: 1px solid var(--sand);
+    }
+    .about-stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--rose);
+    }
+    .about-stat-label {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    /* ── Skills ── */
+    .skills-bg {
+      background: var(--ink);
+      border-radius: var(--radius-lg);
+      padding: 4rem;
+    }
+    .skills-bg .section-label { color: var(--rose-light); }
+    .skills-bg .section-label::before { background: var(--rose-light); }
+    .skills-bg .section-title { color: var(--white); }
+    .skills-bg .section-title em { color: var(--rose-light); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .skill-card {
+      padding: 1.75rem 1.5rem;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .skill-card:hover {
+      background: rgba(255,255,255,0.09);
+      transform: translateY(-4px);
+    }
+    .skill-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--rose);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .skill-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+    .skill-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .skill-card p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    /* ── Certs ── */
+    .certs-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .certs-left .section-title { margin-bottom: 1rem; }
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 1.5rem;
+    }
+    .cert-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      background: var(--white);
+      border: 1px solid var(--sand);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .cert-item:hover {
+      box-shadow: var(--shadow);
+      transform: translateX(4px);
+    }
+    .cert-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--rose);
+      flex-shrink: 0;
+      margin-top: 0.35rem;
+    }
+    .cert-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .cert-meta {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 0.15rem;
+    }
+    .certs-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 2.5rem;
+      background: var(--rose-pale);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--rose-light);
+    }
+    .certs-right p {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--rose);
+      line-height: 1.4;
+    }
+
+    /* ── Projects ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .project-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--sand);
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .project-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .project-slideshow {
+      position: relative;
+      background: var(--sand);
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .project-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .project-slide.is-active { opacity: 1; }
+    .project-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .project-dots {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.35rem;
+      padding: 0.3rem 0.6rem;
+      background: rgba(250,248,244,0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 999px;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ink-muted);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .dot.is-active {
+      background: var(--rose);
+      transform: scale(1.3);
+    }
+    .project-body {
+      padding: 1.5rem;
+    }
+    .project-tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: var(--rose-pale);
+      color: var(--rose);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .project-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .project-card p {
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .project-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .project-link-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .project-link-demo:hover {
+      background: var(--rose);
+      transform: translateY(-1px);
+    }
+    .project-link-gh {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--sand);
+      color: var(--ink-soft);
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .project-link-gh:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    /* ── Footer / Contact ── */
+    .footer {
+      background: var(--ink);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      padding: 5rem 0 3rem;
+      margin-top: 2rem;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .footer-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .footer-title em {
+      font-style: italic;
+      color: var(--rose-light);
+    }
+    .footer-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      background: var(--rose);
+      color: var(--white);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .footer-email:hover {
+      background: #b8495d;
+      transform: translateY(-2px);
+    }
+    .footer-right {
+      padding-top: 0.5rem;
+    }
+    .footer-right p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .social-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.65);
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-link:hover {
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
+    }
+    .social-link svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+    .footer-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--sand);
+      margin: 0;
+    }
+
+    /* ── Reveal animation ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .hero-photo-wrap { order: -1; max-width: 320px; margin: 0 auto; }
+      .hero-accent { right: -0.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .certs-inner { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .skills-bg { padding: 2.5rem 1.75rem; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.6rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .about-stat-row { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="nav-logo">Janna HR.</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certs</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="home">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="hero-tag reveal">Administrative Support · Data &amp; Web</p>
+        <h1 class="reveal reveal-delay-1">Hi, I'm<br><em>Janna Hadji Rashid</em></h1>
+        <p class="hero-desc reveal reveal-delay-2">
+          I combine administrative support, data work, and web design to keep projects moving smoothly — and look polished from the first click.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="JANNA_RESUME.pdf" class="btn-primary" download="janna_resume.pdf">
+            View Resume
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1v8M3 6l4 4 4-4"/><path d="M1 11h12"/></svg>
+          </a>
+          <a href="#projects" class="btn-secondary">See Projects</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal reveal-delay-2">
+        <div class="hero-photo-card">
+          <img src="assets/gradpic.jpg" alt="Janna Hadji Rashid" />
+          <div class="hero-status">
+            <span class="status-dot"></span>
+            Available for freelance
           </div>
         </div>
-      </header>
+        <div class="hero-accent">
+          <div class="hero-accent-num">4+</div>
+          <div class="hero-accent-label">Projects</div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-      <main>
-        <section id="about" class="section container">
-          <div class="about-bento reveal">
-            <div class="about-main">
-              <p class="eyebrow">About</p>
-              <h2>I bring structure to both creative and operational work.</h2>
-              <p>
-                 Bachelor of Science in Information Systems graduate, Major in Data Science,
-                and I enjoy turning ideas into clear digital experiences.
-              </p>
-              <p>
-                I also work as a part-time freelancer, supporting administrative tasks,
-                data entry, file organization, and other detail-driven work with care.
-              </p>
-              <a href="mailto:jannahhadjirashid@gmail.com" class="text-link">
-                jannahhadjirashid@gmail.com →
-              </a>
+  <main>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-left reveal">
+            <p class="section-label">About me</p>
+            <h2 class="section-title">Structure meets<br><em>creativity.</em></h2>
+            <div class="about-body">
+              <p>Bachelor of Science in Information Systems graduate, Major in Data Science — I enjoy turning ideas into clear digital experiences.</p>
+              <p>I work as a part-time freelancer supporting administrative tasks, data entry, file organization, and detail-driven work with care.</p>
             </div>
-            <div class="about-tags">
-              <span>Administrative Support</span>
-              <span>Data Entry</span>
-              <span>File Management</span>
-              <span>Web Design</span>
+            <a href="mailto:jannahhadjirashid@gmail.com" class="about-email">
+              jannahhadjirashid@gmail.com →
+            </a>
+          </div>
+          <div class="about-right reveal reveal-delay-1">
+            <div class="about-stat-row">
+              <div class="about-stat">
+                <div class="about-stat-num">4</div>
+                <div class="about-stat-label">Projects built</div>
+              </div>
+              <div class="about-stat">
+                <div class="about-stat-num">4</div>
+                <div class="about-stat-label">Certifications</div>
+              </div>
+            </div>
+            <div class="about-pill-group">
+              <span class="about-pill">Administrative Support</span>
+              <span class="about-pill">Data Entry</span>
+              <span class="about-pill">File Management</span>
+              <span class="about-pill">Web Design</span>
+              <span class="about-pill">Python</span>
+              <span class="about-pill">Power BI</span>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <section id="skills" class="section container">
-          <div class="section-head reveal">
-            <p class="eyebrow">Skills</p>
-            <h2>What I can support.</h2>
-          </div>
-          <div class="skill-stack">
-            <article class="skill-card reveal">
-              <span class="card-num">01</span>
+    <div class="divider"></div>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="skills-bg reveal">
+          <p class="section-label">What I do</p>
+          <h2 class="section-title">Skills &amp; <em>expertise.</em></h2>
+          <div class="skills-grid">
+            <article class="skill-card">
+              <div class="skill-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              </div>
               <h3>Administrative Support</h3>
               <p>Document handling, scheduling, inbox organization, and dependable office support.</p>
             </article>
-            <article class="skill-card reveal reveal-delay-1">
-              <span class="card-num">02</span>
-              <h3>Data & Analytics</h3>
+            <article class="skill-card">
+              <div class="skill-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <h3>Data &amp; Analytics</h3>
               <p>Python, Power BI, Excel, spreadsheet work, and clear reporting support.</p>
             </article>
-            <article class="skill-card reveal reveal-delay-2">
-              <span class="card-num">03</span>
+            <article class="skill-card">
+              <div class="skill-icon">
+                <svg viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+              </div>
               <h3>Programming</h3>
               <p>C++, HTML, CSS, JavaScript, PHP, MySQL, and Tailwind for digital projects.</p>
             </article>
-            <article class="skill-card reveal reveal-delay-3">
-              <span class="card-num">04</span>
-              <h3>Design & Web Tools</h3>
+            <article class="skill-card">
+              <div class="skill-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              </div>
+              <h3>Design &amp; Web Tools</h3>
               <p>Canva, Figma, and Wix for layouts, branding, and polished web experiences.</p>
             </article>
           </div>
-        </section>
-
-        <section id="certifications" class="section container">
-          <div class="cert-block reveal">
-            <div class="cert-copy">
-              <p class="eyebrow">Certifications</p>
-              <h2>Credentials & training.</h2>
-              <ul class="cert-list">
-                <li>Introduction to Data Science — Cisco Networking Academy (Nov 2024)</li>
-                <li>Python Essentials 1 — Cisco Networking Academy (Nov 2024)</li>
-                <li>Introduction to Cybersecurity — Cisco Networking Academy (Dec 2024)</li>
-                <li>On the Job Training Certification — CTP Red III Corp (May 2026)</li>
-              </ul>
-            </div>
-            <a href="certificate.html" class="btn btn-glow cert-btn">View Certificate</a>
-          </div>
-        </section>
-
-        <section id="projects" class="section container">
-          <div class="section-head reveal">
-            <p class="eyebrow">Projects</p>
-            <h2>Selected work.</h2>
-          </div>
-          <div class="project-grid">
-            <article class="project-card reveal">
-              <div class="project-slideshow" data-interval="5000">
-                <div class="project-slide is-active">
-                  <img src="assets/projects/school-form-1.svg" alt="School forms management system dashboard preview" class="project-image" />
-                </div>
-                <div class="project-slide">
-                  <img src="assets/projects/school-form-2.svg" alt="School forms management system form workflow preview" class="project-image" />
-                </div>
-                <div class="project-slide">
-                  <img src="assets/projects/school-form-3.svg" alt="School forms management system approval preview" class="project-image" />
-                </div>
-                <div class="project-dots" aria-label="Project slideshow indicators">
-                  <button type="button" class="dot is-active" aria-label="Show slide 1"></button>
-                  <button type="button" class="dot" aria-label="Show slide 2"></button>
-                  <button type="button" class="dot" aria-label="Show slide 3"></button>
-                </div>
-              </div>
-              <div class="project-copy">
-                <h3>Web-Based School Forms Management System</h3>
-                <p>A digital solution for handling school forms, approvals, and administrative requests in one organized platform.</p>
-                <div class="project-links">
-                  <a href="https://dihs-form-management-system.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo ↗</a>
-                  <a href="https://github.com/jannabels/DIHS-Form-Management-System" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-1">
-              <div class="project-slideshow" data-interval="5200">
-                <div class="project-slide is-active">
-                  <img src="assets/projects/library-1.svg" alt="Library management system dashboard preview" class="project-image" />
-                </div>
-                <div class="project-slide">
-                  <img src="assets/projects/library-2.svg" alt="Library management system records preview" class="project-image" />
-                </div>
-                <div class="project-slide">
-                  <img src="assets/projects/library-3.svg" alt="Library management system transaction preview" class="project-image" />
-                </div>
-                <div class="project-dots" aria-label="Project slideshow indicators">
-                  <button type="button" class="dot is-active" aria-label="Show slide 1"></button>
-                  <button type="button" class="dot" aria-label="Show slide 2"></button>
-                  <button type="button" class="dot" aria-label="Show slide 3"></button>
-                </div>
-              </div>
-              <div class="project-copy">
-                <h3>Library Management System</h3>
-                <p>A streamlined system for managing books, borrowing records, and library transactions efficiently.</p>
-                <div class="project-links">
-                  <a href="https://library-management-system-five-ashy.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo ↗</a>
-                  <a href="https://github.com/jannabels/LibraryManagementSystem" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-2">
-              <div class="project-slideshow" data-interval="4800">
-                <div class="project-slide is-active">
-                  <img src="screenshot/portfolio1.png" alt="Portfolio preview 1" class="project-image" />
-                </div>
-                <div class="project-slide">
-                  <img src="screenshot/portfolio2.png" alt="Portfolio preview 2" class="project-image" />
-                </div>
-                <div class="project-dots" aria-label="Project slideshow indicators">
-                  <button type="button" class="dot is-active" aria-label="Show slide 1"></button>
-                  <button type="button" class="dot" aria-label="Show slide 2"></button>
-                </div>
-              </div>
-              <div class="project-copy">
-                <h3>Portfolio Website</h3>
-                <p>A personal portfolio website designed to showcase skills, projects, and professional background in a polished layout.</p>
-                <a href="https://github.com/jannabels/janna-portfolio" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a>
-              </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-3">
-              <div class="project-slideshow" data-interval="5000">
-                <div class="project-slide is-active">
-                  <img src="assets/projects/job-tracker-1.svg" alt="Job Application Tracker dashboard preview" class="project-image" />
-                </div>
-                <div class="project-slide">
-                  <img src="assets/projects/job-tracker-2.svg" alt="Job Application Tracker table view preview" class="project-image" />
-                </div>
-                <div class="project-dots" aria-label="Project slideshow indicators">
-                  <button type="button" class="dot is-active" aria-label="Show slide 1"></button>
-                  <button type="button" class="dot" aria-label="Show slide 2"></button>
-                </div>
-              </div>
-              <div class="project-copy">
-                <h3>Job Application Tracker</h3>
-                <p>A clean, browser-based tool to track job applications by status, type, and date — with filters, stats, and a dark/light mode toggle.</p>
-                <div class="project-links">
-                  <a href="https://job-application-tracker-91nuca8an-jannabels-projects-39aa45da.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo ↗</a>
-                  <a href="https://github.com/jannabels/job-application-tracker" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-      </main>
-
-      <footer id="contact" class="footer">
-        <div class="container footer-inner reveal">
-          <p class="footer-title">Let's build something meaningful.</p>
-          <div class="social-links">
-            <a href="https://github.com/jannahhadjirashid" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.92.58.11.79-.25.79-.56v-2.18c-3.2.7-3.88-1.38-3.88-1.38-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.56-.29-5.25-1.28-5.25-5.72 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.45-2.69 5.42-5.26 5.71.41.36.78 1.07.78 2.16v3.2c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/janna-hadji-rashid-729a34411" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12ZM5.5 9.75h2.88V18H5.5zM10.25 9.75h2.76v1.14h.04c.38-.72 1.32-1.48 2.72-1.48 2.91 0 3.45 1.91 3.45 4.4V18h-2.88v-7.42c0-1.77-.03-4.05-2.47-4.05-2.47 0-2.85 1.93-2.85 3.92V18H10.25z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/jnaa_hr/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3.2A4.3 4.3 0 1 1 7.7 11.5 4.3 4.3 0 0 1 12 7.2zm0 2A2.3 2.3 0 1 0 14.3 11.5 2.3 2.3 0 0 0 12 9.2zm5.5-2.7a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>
-            </a>
-            <a href="https://www.upwork.com/freelancers/~015d77883e356693c1?mp_source=share" target="_blank" rel="noopener noreferrer" aria-label="Upwork">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.8 8.4c-.8 0-1.5.3-2.1.8l-.4-1.2H11v8.1h2.4v-4.2c0-1 .7-1.8 1.7-1.8 1 0 1.6.8 1.6 1.8v4.2h2.4v-4.4c0-2.2-1.5-3.7-3.3-3.7zM8.4 8.4c-1.8 0-3.2 1.4-3.2 3.2 0 1.7 1.4 3.2 3.2 3.2 1.7 0 3.2-1.5 3.2-3.2 0-1.8-1.5-3.2-3.2-3.2z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/norjannah.hadjirashid" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 20v-7.3h2.45l.37-2.84H13.7V4.04c0-.82.23-1.38 1.41-1.38h1.5V.14A20.1 20.1 0 0 0 14.4 0c-2.17 0-3.66 1.33-3.66 3.77v2.06H8.3v2.84h2.44V20z"/></svg>
-            </a>
-          </div>
-          <a href="mailto:jannahhadjirashid@gmail.com" class="btn btn-glow">Contact me</a>
         </div>
-      </footer>
-    </div>
+      </div>
+    </section>
 
-    <script src="script.js?v=22"></script>
-  </body>
+    <div class="divider"></div>
+
+    <!-- Certifications -->
+    <section id="certifications" class="section">
+      <div class="container">
+        <div class="certs-inner">
+          <div class="certs-left reveal">
+            <p class="section-label">Credentials</p>
+            <h2 class="section-title">Certifications<br>&amp; <em>training.</em></h2>
+            <div class="cert-list">
+              <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                  <div class="cert-name">Introduction to Data Science</div>
+                  <div class="cert-meta">Cisco Networking Academy · Nov 2024</div>
+                </div>
+              </div>
+              <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                  <div class="cert-name">Python Essentials 1</div>
+                  <div class="cert-meta">Cisco Networking Academy · Nov 2024</div>
+                </div>
+              </div>
+              <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                  <div class="cert-name">Introduction to Cybersecurity</div>
+                  <div class="cert-meta">Cisco Networking Academy · Dec 2024</div>
+                </div>
+              </div>
+              <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                  <div class="cert-name">On the Job Training Certification</div>
+                  <div class="cert-meta">CTP Red III Corp · May 2026</div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:1.5rem;">
+              <a href="certificate.html" class="btn-primary" style="display:inline-flex;">View Certificates →</a>
+            </div>
+          </div>
+          <div class="certs-right reveal reveal-delay-1">
+            <p>"Continuous learning is how I stay useful, adaptable, and ready for what's next."</p>
+            <div style="width:40px;height:2px;background:var(--rose);border-radius:2px;"></div>
+            <div style="font-size:0.85rem;color:var(--rose);font-weight:600;">— Janna Hadji Rashid</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <p class="section-label reveal">Selected work</p>
+        <h2 class="section-title reveal reveal-delay-1">Projects I've <em>built.</em></h2>
+        <div class="projects-grid">
+
+          <article class="project-card reveal">
+            <div class="project-slideshow" data-interval="5000">
+              <div class="project-slide is-active">
+                <img src="assets/projects/school-form-1.svg" alt="DIHS Form Management System dashboard" />
+              </div>
+              <div class="project-slide">
+                <img src="assets/projects/school-form-2.svg" alt="DIHS Form Management System workflow" />
+              </div>
+              <div class="project-slide">
+                <img src="assets/projects/school-form-3.svg" alt="DIHS Form Management System approval" />
+              </div>
+              <div class="project-dots">
+                <button type="button" class="dot is-active" aria-label="Slide 1"></button>
+                <button type="button" class="dot" aria-label="Slide 2"></button>
+                <button type="button" class="dot" aria-label="Slide 3"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-tag">Web App</span>
+              <h3>School Forms Management System</h3>
+              <p>A digital solution for handling school forms, approvals, and administrative requests in one organized platform.</p>
+              <div class="project-links">
+                <a href="https://dihs-form-management-system.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link-demo">Live Demo ↗</a>
+                <a href="https://github.com/jannabels/DIHS-Form-Management-System" target="_blank" rel="noopener noreferrer" class="project-link-gh">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-1">
+            <div class="project-slideshow" data-interval="5200">
+              <div class="project-slide is-active">
+                <img src="assets/projects/library-1.svg" alt="Library Management System dashboard" />
+              </div>
+              <div class="project-slide">
+                <img src="assets/projects/library-2.svg" alt="Library Management System records" />
+              </div>
+              <div class="project-slide">
+                <img src="assets/projects/library-3.svg" alt="Library Management System transactions" />
+              </div>
+              <div class="project-dots">
+                <button type="button" class="dot is-active" aria-label="Slide 1"></button>
+                <button type="button" class="dot" aria-label="Slide 2"></button>
+                <button type="button" class="dot" aria-label="Slide 3"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-tag">Web App</span>
+              <h3>Library Management System</h3>
+              <p>A streamlined system for managing books, borrowing records, and library transactions efficiently.</p>
+              <div class="project-links">
+                <a href="https://library-management-system-five-ashy.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link-demo">Live Demo ↗</a>
+                <a href="https://github.com/jannabels/LibraryManagementSystem" target="_blank" rel="noopener noreferrer" class="project-link-gh">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-2">
+            <div class="project-slideshow" data-interval="4800">
+              <div class="project-slide is-active">
+                <img src="screenshot/portfolio1.png" alt="Portfolio website preview" />
+              </div>
+              <div class="project-slide">
+                <img src="screenshot/portfolio2.png" alt="Portfolio website preview 2" />
+              </div>
+              <div class="project-dots">
+                <button type="button" class="dot is-active" aria-label="Slide 1"></button>
+                <button type="button" class="dot" aria-label="Slide 2"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-tag">Portfolio</span>
+              <h3>Portfolio Website</h3>
+              <p>A personal portfolio website designed to showcase skills, projects, and professional background in a polished layout.</p>
+              <div class="project-links">
+                <a href="https://github.com/jannabels/janna-portfolio" target="_blank" rel="noopener noreferrer" class="project-link-gh">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-3">
+            <div class="project-slideshow" data-interval="5000">
+              <div class="project-slide is-active">
+                <img src="assets/projects/job-tracker-1.svg" alt="Job Application Tracker dashboard" />
+              </div>
+              <div class="project-slide">
+                <img src="assets/projects/job-tracker-2.svg" alt="Job Application Tracker modal" />
+              </div>
+              <div class="project-dots">
+                <button type="button" class="dot is-active" aria-label="Slide 1"></button>
+                <button type="button" class="dot" aria-label="Slide 2"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-tag">Tool</span>
+              <h3>Job Application Tracker</h3>
+              <p>A browser-based tool to track job applications by status, type, and date — with filters, stats, and dark/light mode.</p>
+              <div class="project-links">
+                <a href="https://job-application-tracker-91nuca8an-jannabels-projects-39aa45da.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link-demo">Live Demo ↗</a>
+                <a href="https://github.com/jannabels/job-application-tracker" target="_blank" rel="noopener noreferrer" class="project-link-gh">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer / Contact -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-inner reveal">
+        <div>
+          <h2 class="footer-title">Let's build something<br><em>meaningful.</em></h2>
+          <a href="mailto:jannahhadjirashid@gmail.com" class="footer-email">
+            Get in touch →
+          </a>
+        </div>
+        <div class="footer-right">
+          <p>Open to freelance projects, part-time roles, and collaboration. Based in the Philippines, working remotely.</p>
+          <div class="social-row">
+            <a href="https://github.com/jannahhadjirashid" target="_blank" rel="noopener noreferrer" class="social-link">
+              <svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.92.58.11.79-.25.79-.56v-2.18c-3.2.7-3.88-1.38-3.88-1.38-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.56-.29-5.25-1.28-5.25-5.72 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.45-2.69 5.42-5.26 5.71.41.36.78 1.07.78 2.16v3.2c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/janna-hadji-rashid-729a34411" target="_blank" rel="noopener noreferrer" class="social-link">
+              <svg viewBox="0 0 24 24"><path d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12ZM5.5 9.75h2.88V18H5.5zM10.25 9.75h2.76v1.14h.04c.38-.72 1.32-1.48 2.72-1.48 2.91 0 3.45 1.91 3.45 4.4V18h-2.88v-7.42c0-1.77-.03-4.05-2.47-4.05-2.47 0-2.85 1.93-2.85 3.92V18H10.25z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://www.upwork.com/freelancers/~015d77883e356693c1?mp_source=share" target="_blank" rel="noopener noreferrer" class="social-link">
+              <svg viewBox="0 0 24 24"><path d="M15.8 8.4c-.8 0-1.5.3-2.1.8l-.4-1.2H11v8.1h2.4v-4.2c0-1 .7-1.8 1.7-1.8 1 0 1.6.8 1.6 1.8v4.2h2.4v-4.4c0-2.2-1.5-3.7-3.3-3.7zM8.4 8.4c-1.8 0-3.2 1.4-3.2 3.2 0 1.7 1.4 3.2 3.2 3.2 1.7 0 3.2-1.5 3.2-3.2 0-1.8-1.5-3.2-3.2-3.2z"/></svg>
+              Upwork
+            </a>
+            <a href="https://www.instagram.com/jnaa_hr/" target="_blank" rel="noopener noreferrer" class="social-link">
+              <svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3.2A4.3 4.3 0 1 1 7.7 11.5 4.3 4.3 0 0 1 12 7.2zm0 2A2.3 2.3 0 1 0 14.3 11.5 2.3 2.3 0 0 0 12 9.2zm5.5-2.7a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>
+              Instagram
+            </a>
+            <a href="https://www.facebook.com/norjannah.hadjirashid" target="_blank" rel="noopener noreferrer" class="social-link">
+              <svg viewBox="0 0 24 24"><path d="M13.7 20v-7.3h2.45l.37-2.84H13.7V4.04c0-.82.23-1.38 1.41-1.38h1.5V.14A20.1 20.1 0 0 0 14.4 0c-2.17 0-3.66 1.33-3.66 3.77v2.06H8.3v2.84h2.44V20z"/></svg>
+              Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Janna Hadji Rashid</span>
+        <span>Built with care ♥</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Slideshows
+    document.querySelectorAll('.project-slideshow').forEach(ss => {
+      const slides = [...ss.querySelectorAll('.project-slide')];
+      const dots = [...ss.querySelectorAll('.dot')];
+      let cur = 0, timer = null;
+      const show = i => {
+        cur = (i + slides.length) % slides.length;
+        slides.forEach((s, idx) => s.classList.toggle('is-active', idx === cur));
+        dots.forEach((d, idx) => d.classList.toggle('is-active', idx === cur));
+      };
+      const start = () => {
+        if (slides.length <= 1) return;
+        clearInterval(timer);
+        timer = setInterval(() => show(cur + 1), Number(ss.dataset.interval || 5000));
+      };
+      dots.forEach((d, i) => d.addEventListener('click', () => { show(i); start(); }));
+      ss.addEventListener('mouseenter', start);
+      ss.addEventListener('mouseleave', () => clearInterval(timer));
+      show(0);
+      start();
+    });
+  </script>
+</body>
 </html>
